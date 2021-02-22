@@ -720,8 +720,8 @@
 <h2 id="sidecarchanges">sidecarChanges<a class="headerlink" href="#sidecarchanges" title="Permanent link">⚓︎</a></h2>
 <p>Optional field to change or add information in a sidecar.</p>
 <h2 id="intendedfor">intendedFor<a class="headerlink" href="#intendedfor" title="Permanent link">⚓︎</a></h2>
-<p>Optional<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> field to add an <code>IntendedFor</code> entry in the sidecar of a fieldmap. Just put the index or a list of index of the description(s) that's intended for.</p>
-<p>Python index begins at <code>0</code> so in the example, <code>0</code> means<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> it is intended for <code>task-rest_bold</code>.</p>
+<p>Optional field to add an <code>IntendedFor</code> entry in the sidecar of a fieldmap. Just put the index or a list of index of the description(s) that's intended for.</p>
+<p>Python index begins at <code>0</code> so in the example, <code>0</code> means it is intended for <code>task-rest_bold</code>.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -732,22 +732,6 @@ containing information from the dicom header. These are known as
 of acquisitions.</p>
 <p>To define this filtering you will probably need to review these sidecars.
 You can generate all the sidecars for an individual participant using <a href="../1-usage/#tools">dcm2bids_helper</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>For each acquisition, <code>dcm2niix</code> creates an associated <code>.json</code> file,
-containing information from the dicom header. These are known as
-<strong>sidecars</strong>. These are the sidecars <code>dcm2bids</code> uses to filter the groups
-of acquisitions.</p>
-<p>To define this filtering you will probably need to review these sidecars.
-You can generate all the sidecars for an individual participant using <a href="../1-usage/#tools">dcm2bids_helper</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:3">
-<p>For each acquisition, <code>dcm2niix</code> creates an associated <code>.json</code> file,
-containing information from the dicom header. These are known as
-<strong>sidecars</strong>. These are the sidecars <code>dcm2bids</code> uses to filter the groups
-of acquisitions.</p>
-<p>To define this filtering you will probably need to review these sidecars.
-You can generate all the sidecars for an individual participant using <a href="../1-usage/#tools">dcm2bids_helper</a>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

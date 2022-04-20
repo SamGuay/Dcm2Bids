@@ -2,6 +2,8 @@
 title: Tutorials
 ---
 
+Silly test!
+
 # Tutorials
 
 Get to know dcm2bids through tutorials that describe in depth the dcm2bids

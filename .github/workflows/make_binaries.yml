@@ -60,13 +60,13 @@ jobs:
           build/dcm2bids \
           build/dcm2bids_helper \
           build/dcm2bids_scaffold
-      - name: Create archive for Linux
+      - name: Create archive for macOS
         if: startsWith(matrix.os, 'macos')
         run: |
           tar -cvf dcm2bids_${{ runner.os }}_${{ github.event.release.tag_name }}.tar.gz build/*.app/**/*
       - name: Create archive for Windows
         if: startsWith(matrix.os, 'windows')
-        run: zip dcm2bids_${{ runner.os }}_${{ github.event.release.tag_name }}.zip build/*.exe 
+        run: tar.exe acvf dcm2bids_${{ runner.os }}_${{ github.event.release.tag_name }}.zip build/*.exe
       - name: Upload binaries
         uses: actions/upload-artifact@v3
         with:

@@ -8,6 +8,7 @@ on:
       - master
     tags:
       - '[0-9]+.[0-9]+.[0-9]+'
+
   # Allow this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -51,13 +52,30 @@ jobs:
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
+      - name: GitHub Tag Name example
+        run: |
+          echo "Tag name from github.ref_name: ${{  github.ref_name }} and from github.event_name ${{ github.event_name }}"
+
       - name: Build API reference
         run: pdocs as_markdown -o docs/ dcm2bids --overwrite
 
-      - name: Build docs for specific release
-        if: github.event_name == 'release'
+      - name: Build docs for new release
+        if: github.event_name == 'published'
         run: |
-          mike deploy -p ${{ github.ref_name }} latest -u
+          VERSION=$(dcm2bids -v | awk '/dcm2bids/ {print $3}')
+          mike deploy -p $VERSION latest -u
+
+      - name: Build docs for new release
+        if: github.event_name == 'published' && startsWith(github.ref, 'refs/tags/')
+        run: |
+          VERSION=$(dcm2bids -v | awk '/dcm2bids/ {print $3}')
+          mike deploy -p $VERSION latest -u
+
+      # - name: Build docs for specific release (already deployed)
+      #   if: github.event_name != 'release' && github.ref_name
+      #   run: |
+      #     VERSION=$(dcm2bids -v | awk '/dcm2bids/ {print $3}')
+      #     mike deploy -p $VERSION
 
       - name: Deploy dev version
         if: ${{ github.ref == 'refs/heads/master' }}
